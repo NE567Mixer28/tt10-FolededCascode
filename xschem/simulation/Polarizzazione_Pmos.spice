@@ -1,0 +1,45 @@
+** sch_path: /home/ttuser/tt10-FoldedCascode/xschem/Polarizzazione_Pmos.sch
+**.subckt Polarizzazione_Pmos
+V1 G GND 0.7
+V2 D GND 1.7
+XM1 net4 G net2 net1 sky130_fd_pr__pfet_01v8 L=1 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+V3 net1 GND 1.8
+XM2 net2 net3 net1 net1 sky130_fd_pr__pfet_01v8 L=1 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+V4 net3 GND 1.3
+Vmeas net4 D 0
+.save i(vmeas)
+**** begin user architecture code
+
+
+
+* ngspice commands
+
+.options savecurrents
+
+.control
+save @m.xm1.msky130_fd_pr__pfet_01v8[gm]
+save @m.xm2.msky130_fd_pr__pfet_01v8[gm]
+op
+remzerovec
+write Polarizzazione_Pmos.raw
+set appendwrite
+dc V3 0 1.8 0.01
+write Polarizzazione_Pmos.raw
+.endc
+
+
+
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

@@ -1,0 +1,55 @@
+** sch_path: /home/ttuser/tt10-FoldedCascode/xschem/untitled-5.sch
+**.subckt untitled-5 OUT
+*.opin OUT
+XM1 G IN+ S GND sky130_fd_pr__nfet_01v8_lvt L=2 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 OUT MINUS S GND sky130_fd_pr__nfet_01v8_lvt L=2 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net2 BIAS GND GND sky130_fd_pr__nfet_01v8_lvt L=4 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 OUT G VCC VCC sky130_fd_pr__pfet_01v8_lvt L=4 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 G G VCC VCC sky130_fd_pr__pfet_01v8_lvt L=4 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+Vtail S net2 0
+.save i(vtail)
+V1 BIAS GND 0.7
+V2 VCC GND 1.8
+XC1 OUT GND sky130_fd_pr__cap_mim_m3_1 W=25 L=20 MF=1 m=1
+C4 GND MINUS 1 m=1
+R2 OUT MINUS 1G m=1
+VbiasR1 IN+ net1 0 ac 1 0 sin(0 500u 50 0 0 0)
+V3 net1 GND 0.9
+**** begin user architecture code
+
+
+
+.option reltol=1e-5
++  abstol=1e-14 savecurrents
+.control
+  save all
+  op
+  remzerovec
+  write untitled-5.raw
+
+  set appendwrite
+  noise v(OUT) VbiasR1 dec 10 0.01 1e3
+  remzerovec
+  write untitled-5.raw
+
+.endc
+
+
+
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

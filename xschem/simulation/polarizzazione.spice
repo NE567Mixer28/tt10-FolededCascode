@@ -1,0 +1,61 @@
+** sch_path: /home/ttuser/tt10-FoldedCascode/xschem/polarizzazione.sch
+**.subckt polarizzazione
+XM2 D G S S sky130_fd_pr__pfet_01v8 L=0.15 W=10 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+V1 G GND 0.9
+V2 S GND 1.65
+V3 D GND 0.2
+**** begin user architecture code
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+
+
+
+* ngspice commands
+.param W=1
+.options savecurrents
+.dc V1 0 1.8 0.02
+.control
+
+  let start_w = 1
+  let stop_w = 50
+  let delta_w = 10
+  let w_act = start_w
+  while w_act le stop_w
+    alterparam W = $&w_act
+    reset
+    save all
+    save @m.xm1.msky130_fd_pr__pfet_01v8[gm]
+    save @m.xm1.msky130_fd_pr__pfet_01v8[W]
+    run
+    remzerovec
+    write polarizzazione.raw
+    let w_act = w_act + delta_w
+    set appendwrite
+  end
+plot i(V2)
+
+op
+remzerovec
+write polarizzazione.raw
+.endc
+
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end
+
+
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

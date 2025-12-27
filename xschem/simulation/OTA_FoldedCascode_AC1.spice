@@ -1,0 +1,77 @@
+** sch_path: /home/ttuser/tt10-FoldedCascode/xschem/OTA_FoldedCascode_AC1.sch
+**.subckt OTA_FoldedCascode_AC1 VDD GND VDD GND OUT IN+ IN-
+*.iopin VDD
+*.iopin GND
+*.iopin VDD
+*.iopin GND
+*.opin OUT
+*.ipin IN+
+*.ipin IN-
+VbiasR1 IN+ ref 0 ac 1 0 sin(0 100u 50 0 0 0)
+V2 ref GND 0.9
+V3 VDD GND 1.8
+V4 Vb GND 1.3
+V5 Vc GND 0.69
+V6 Vc1 GND 1.3
+V7 Vc2 GND 0.45
+XC3 OUT GND sky130_fd_pr__cap_mim_m3_1 W=50 L=20 MF=1 m=1
+XM11 S Vb VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1 W=60 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM1 D1 IN+ S S sky130_fd_pr__pfet_01v8_lvt L=10 W=25 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM2 D2 IN- S S sky130_fd_pr__pfet_01v8_lvt L=10 W=25 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM3 OUT Vc1 D2 GND sky130_fd_pr__nfet_01v8_lvt L=1 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 D2 Vc GND GND sky130_fd_pr__nfet_01v8_lvt L=1 W=2.8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 D1 Vc GND GND sky130_fd_pr__nfet_01v8_lvt L=1 W=2.8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM6 G Vc1 D1 GND sky130_fd_pr__nfet_01v8_lvt L=1 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM7 G Vc2 D9 D9 sky130_fd_pr__pfet_01v8_lvt L=2.23 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM9 D9 G VDD VDD sky130_fd_pr__pfet_01v8_lvt L=2.23 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM8 D10 G VDD VDD sky130_fd_pr__pfet_01v8_lvt L=2.23 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM10 OUT Vc2 D10 D10 sky130_fd_pr__pfet_01v8_lvt L=2.23 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+VbiasR2 IN- net1 0 ac 1 180 sin(0 100u 50 0 0 180)
+V1 net1 GND 0.9
+**** begin user architecture code
+
+
+
+.option reltol=1e-5
++  abstol=1e-14 savecurrents
+.control
+  save all
+  op
+  remzerovec
+  write OTA_FoldedCascode_AC1.raw
+
+  set appendwrite
+  ac dec 10 1 1e9
+  remzerovec
+  write OTA_FoldedCascode_AC1.raw
+
+  tran 100u 100m
+  write OTA_FoldedCascode_AC1.raw
+
+.endc
+
+
+
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end

@@ -1,0 +1,103 @@
+** sch_path: /home/ttuser/tt10-FoldedCascode/xschem/untitled-1.sch
+**.subckt untitled-1 VDD GND IN+ IN- OUT
+*.iopin VDD
+*.iopin GND
+*.ipin IN+
+*.ipin IN-
+*.opin OUT
+V1 VDD GND 1.8
+Vbias IN+ GND 0.9
+VbiasR IN- GND 0.9
+XM11 S Vb VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1 W=60 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM1 D1 IN+ S S sky130_fd_pr__pfet_01v8_lvt L=10 W=25 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM2 D2 IN- S S sky130_fd_pr__pfet_01v8_lvt L=10 W=25 nf=2 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
+XM3 OUT Vc1 D2 GND sky130_fd_pr__nfet_01v8_lvt L=1 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 D2 Vc GND GND sky130_fd_pr__nfet_01v8_lvt L=1 W=2.8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM5 D1 Vc GND GND sky130_fd_pr__nfet_01v8_lvt L=1 W=2.8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM6 G Vc1 D1 GND sky130_fd_pr__nfet_01v8_lvt L=1 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM7 G Vc2 D9 D9 sky130_fd_pr__pfet_01v8_lvt L=2.23 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM9 D9 G VDD VDD sky130_fd_pr__pfet_01v8_lvt L=2.23 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM8 D10 G VDD VDD sky130_fd_pr__pfet_01v8_lvt L=2.23 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM10 OUT Vc2 D10 D10 sky130_fd_pr__pfet_01v8_lvt L=2.23 W=3 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XR2 Vb VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
+XR3 GND Vb GND sky130_fd_pr__res_xhigh_po_0p35 L=13.2 mult=1 m=1
+XR1 Vc VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
+XR4 GND Vc GND sky130_fd_pr__res_xhigh_po_0p35 L=3.07 mult=1 m=1
+XR5 Vc1 VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
+XR6 GND Vc1 GND sky130_fd_pr__res_xhigh_po_0p35 L=13.2 mult=1 m=1
+XR7 Vc2 VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
+XR8 GND Vc2 GND sky130_fd_pr__res_xhigh_po_0p35 L=1.6 mult=1 m=1
+**** begin user architecture code
+
+
+.options savecurrents
+.control
+    destroy all
+
+    * Usiamo 20 run per testare la stabilità
+    let mc_runs = 20
+    let run_idx = 0
+
+    * Inizializziamo i vettori nel plot 'const'
+    let const.gain_out = unitvec(20)
+    let const.run_num = unitvec(20)
+
+    * --- INIZIO LOOP ---
+    repeat 20
+        op
+        * Sweep DC molto largo per non perdere mai il picco
+        dc Vbias 0.80 1.00 0.001
+
+        * Definiamo il vettore della derivata nel plot corrente
+        let d_out = deriv(v(out))
+
+        * Troviamo il massimo usando una sintassi più tollerante
+        let g_peak = vecmax(d_out)
+
+        * Salvataggio forzato indicando esplicitamente il plot 'const'
+        let const.gain_out[run_idx] = g_peak
+        let const.run_num[run_idx] = run_idx
+
+        echo
+
+        let run_idx = run_idx + 1
+        reset
+    end
+    * --- FINE LOOP ---
+
+    * Torniamo al plot globale per evitare errori di 'no such vector'
+    setplot const
+
+    echo
+    * Stampiamo i valori grezzi (se avg dà errore, vedremo almeno la lista)
+    print gain_out
+
+    * Il grafico DEVE usare 'vs' per allineare i 20 punti
+    plot gain_out vs run_num title 'Guadagno per Run'
+.endc
+.end
+
+
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /home/ttuser/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+**** end user architecture code
+**.ends
+.GLOBAL GND
+.end
