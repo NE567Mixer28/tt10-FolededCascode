@@ -185,9 +185,9 @@ logy=0
 divx=8
 sweep=""
 
-x1=-2
+x1=-2.0999998
 divy=8
-}
+x2=-0.099999036}
 B 2 350 670 900 920 {flags=graph,unlocked
 
 
@@ -202,8 +202,9 @@ unity=1
 subdivx=8
 node="\\"outPB db20()\\"
 \\"outPA db20()\\"
+\\"outA db20()\\"
 \\"out_drl db20()\\""
-color="4 6 5"
+color="4 6 8 4"
 dataset=0
 unitx=1
 logx=1
@@ -214,18 +215,18 @@ rawfile=$netlist_dir/ecg.raw
 sim_type=ac
 
 
-y2=50.90909
+y2=50.909108
 
 
 
 
 divx=8
 
-y1=-9.0909095
+y1=-20
 
 divy=11
-x2=4.9
-x1=-2.1}
+x2=5
+x1=-2}
 N -2260 -230 -2180 -230 {
 lab=out1}
 N -2260 -10 -2180 -10 {

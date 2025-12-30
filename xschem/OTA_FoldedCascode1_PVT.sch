@@ -11,9 +11,9 @@ N -1570 -390 -1570 -360 {
 lab=GND}
 N -1570 -480 -1570 -450 {
 lab=VDD}
-N -1570 -170 -1570 -150 {
+N -1270 -400 -1270 -380 {
 lab=GND}
-N -1570 -250 -1570 -230 {
+N -1270 -480 -1270 -460 {
 lab=IN+}
 N -130 -610 -90 -610 {
 lab=VDD}
@@ -275,9 +275,9 @@ N -900 -620 -880 -620 {
 lab=GND}
 N -900 -580 -880 -580 {
 lab=GND}
-N -1480 -170 -1480 -150 {
+N -1180 -400 -1180 -380 {
 lab=GND}
-N -1480 -250 -1480 -230 {
+N -1180 -480 -1180 -460 {
 lab=IN-}
 C {devices/simulator_commands_shown.sym} -2540 -710 0 0 {name=COMMANDS
 simulator=ngspice
@@ -287,22 +287,40 @@ value="
     set wr_vecnames
     set wr_singlescale
 
-    let mc_runs = 5
+    let mc_runs = 3
     let run = 1
 
     dowhile run <= mc_runs
-        op
-        *dc Vbias 0 1.8 0.01
-        dc Vbias 0.8  1 0.001
-        reset
+        * Sintassi corretta con le parentesi per la condizione if
+        if (run = 1)
+            echo >>> SCENARIO 1: TYPICAL (27C, V1 1.8V)
+            set temp = 27
+            alter V1 1.8
+        end
+        
+        if (run = 2)
+            echo >>> SCENARIO 2: HOT & LOW (125C, V1 1.62V)
+            set temp = 125
+            alter V1 1.62
+        end
+        
+        if (run = 3)
+            echo >>> SCENARIO 3: COLD & HIGH (-40C, V1 1.98V)
+            set temp = -40
+            alter V1 1.98
+        end
+
+        * Simulazione DC
+        dc Vbias 0.8 1 0.001
+        
         let run = run + 1
     end
 
-    plot dc1.v(OUT) dc2.v(OUT) dc3.v(OUT) dc4.v(OUT) dc5.v(OUT)
-    plot deriv(dc1.v(out)) deriv(dc2.v(out)) deriv(dc3.v(out)) deriv(dc4.v(out)) deriv(dc5.v(out))
-
+    * Visualizzazione
+    plot dc1.v(OUT) dc2.v(OUT) dc3.v(OUT) title 'DC Transfer PVT'
+    plot deriv(dc1.v(out)) deriv(dc2.v(out)) deriv(dc3.v(out)) title 'DC Gain PVT'
 .endc"}
-C {sky130_fd_pr/corner.sym} -2660 -730 0 0 {name=CORNER only_toplevel=false corner=tt_mm}
+C {sky130_fd_pr/corner.sym} -2660 -730 0 0 {name=CORNER only_toplevel=false corner=sf}
 C {devices/iopin.sym} -1470 -470 0 0 {name=p1 lab=VDD}
 C {devices/iopin.sym} -1470 -440 0 0 {name=p2 lab=GND}
 C {devices/vsource.sym} -1570 -420 0 0 {name=V1 value=1.8 savecurrent=false}
@@ -310,14 +328,14 @@ C {devices/gnd.sym} -1470 -370 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} -1470 -410 0 1 {name=p8 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1570 -360 0 1 {name=p9 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1570 -480 0 0 {name=p10 sig_type=std_logic lab=VDD}
-C {devices/vsource.sym} -1570 -200 0 0 {name=Vbias value=0.9 savecurrent=false}
-C {devices/lab_pin.sym} -1570 -250 0 0 {name=p14 sig_type=std_logic lab=IN+}
-C {devices/launcher.sym} -1240 -210 0 0 {name=h1
+C {devices/vsource.sym} -1270 -430 0 0 {name=Vbias value=0.9 savecurrent=false}
+C {devices/lab_pin.sym} -1270 -480 0 0 {name=p14 sig_type=std_logic lab=IN+}
+C {devices/launcher.sym} -990 -420 0 0 {name=h1
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
-C {devices/lab_pin.sym} -1570 -150 0 1 {name=p11 sig_type=std_logic lab=GND}
-C {devices/launcher.sym} -1240 -240 0 0 {name=h3
+C {devices/lab_pin.sym} -1270 -380 0 1 {name=p11 sig_type=std_logic lab=GND}
+C {devices/launcher.sym} -990 -450 0 0 {name=h3
 descr="Netlist & sim" 
 tclcommand="xschem netlist; xschem simulate"}
 C {devices/ipin.sym} -610 -220 0 0 {name=p4 lab=IN+}
@@ -552,6 +570,6 @@ C {devices/lab_pin.sym} -1540 -670 0 1 {name=p34 sig_type=std_logic lab=Vb}
 C {devices/lab_pin.sym} -1300 -670 0 1 {name=p36 sig_type=std_logic lab=Vc}
 C {devices/lab_pin.sym} -1050 -670 0 1 {name=p41 sig_type=std_logic lab=Vc1}
 C {devices/lab_pin.sym} -820 -670 0 1 {name=p44 sig_type=std_logic lab=Vc2}
-C {devices/vsource.sym} -1480 -200 0 0 {name=VbiasR value=0.9 savecurrent=false}
-C {devices/lab_pin.sym} -1480 -250 0 0 {name=p13 sig_type=std_logic lab=IN-}
-C {devices/lab_pin.sym} -1480 -150 0 1 {name=p12 sig_type=std_logic lab=GND}
+C {devices/vsource.sym} -1180 -430 0 0 {name=VbiasR value=0.9 savecurrent=false}
+C {devices/lab_pin.sym} -1180 -480 0 0 {name=p13 sig_type=std_logic lab=IN-}
+C {devices/lab_pin.sym} -1180 -380 0 1 {name=p12 sig_type=std_logic lab=GND}

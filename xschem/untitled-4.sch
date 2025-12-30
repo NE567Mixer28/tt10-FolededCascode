@@ -287,22 +287,44 @@ value="
     set wr_vecnames
     set wr_singlescale
 
-    let mc_runs = 5
+    * Definiamo 3 scenari PVT
+    let pvt_runs = 3
     let run = 1
 
-    dowhile run <= mc_runs
-        op
-        *dc Vbias 0 1.8 0.01
-        dc Vbias 0.8  1 0.001
-        reset
+    dowhile run <= pvt_runs
+        if run == 1
+            echo *SCENARIO 1: TYPICAL (27C, VDD 1.8V)
+            set temp = 27
+            alter VDD 1.8
+        end
+        if run == 2
+            echo *CENARIO 2: HOT & LOW VOLTAGE (125C, VDD 1.62V)
+            set temp = 125
+            alter VDD 1.62
+        end
+        if run == 3
+            echo *SCENARIO 3: COLD & HIGH VOLTAGE (-40C, VDD 1.98V)
+            set temp = -40
+            alter VDD 1.98
+        end
+
+        * Esecuzione analisi DC
+        dc Vbias 0.8 1 0.001
+        
         let run = run + 1
     end
 
-    plot dc1.v(OUT) dc2.v(OUT) dc3.v(OUT) dc4.v(OUT) dc5.v(OUT)
-    plot deriv(dc1.v(out)) deriv(dc2.v(out)) deriv(dc3.v(out)) deriv(dc4.v(out)) deriv(dc5.v(out))
+    * --- PLOT RISULTATI ---
+    
+    * Visualizzazione della curva di trasferimento DC
+    plot dc1.v(OUT) dc2.v(OUT) dc3.v(OUT) title 'DC Transfer PVT'
+
+    * Visualizzazione del Guadagno (Derivata)
+    * Nota: con l'impedenza di 3Mohm, vedrai i picchi spostarsi e cambiare altezza
+    plot deriv(dc1.v(out)) deriv(dc2.v(out)) deriv(dc3.v(out)) title 'DC Gain PVT'
 
 .endc"}
-C {sky130_fd_pr/corner.sym} -2660 -730 0 0 {name=CORNER only_toplevel=false corner=tt_mm}
+C {sky130_fd_pr/corner.sym} -2660 -730 0 0 {name=CORNER only_toplevel=false corner=tt}
 C {devices/iopin.sym} -1470 -470 0 0 {name=p1 lab=VDD}
 C {devices/iopin.sym} -1470 -440 0 0 {name=p2 lab=GND}
 C {devices/vsource.sym} -1570 -420 0 0 {name=V1 value=1.8 savecurrent=false}

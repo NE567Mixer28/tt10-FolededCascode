@@ -10,10 +10,6 @@
 VbiasR1 IN+ ref 0 ac 1 0 sin(0 100u 50 0 0 0)
 V2 ref GND 0.9
 V3 VDD GND 1.8
-V4 Vb GND 1.3
-V5 Vc GND 0.69
-V6 Vc1 GND 1.3
-V7 Vc2 GND 0.45
 XC3 OUT GND sky130_fd_pr__cap_mim_m3_1 W=50 L=20 MF=1 m=1
 XM11 S Vb VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1 W=60 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=2 m=2
@@ -39,6 +35,14 @@ XM10 OUT Vc2 D10 D10 sky130_fd_pr__pfet_01v8_lvt L=2.23 W=3 nf=1 ad='int((nf+1)/
 + pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 VbiasR2 IN- net1 0 ac 1 180 sin(0 100u 50 0 0 180)
 V1 net1 GND 0.9
+XR2 Vb VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
+XR3 GND Vb GND sky130_fd_pr__res_xhigh_po_0p35 L=13.2 mult=1 m=1
+XR1 Vc VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
+XR4 GND Vc GND sky130_fd_pr__res_xhigh_po_0p35 L=3.07 mult=1 m=1
+XR5 Vc1 VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
+XR6 GND Vc1 GND sky130_fd_pr__res_xhigh_po_0p35 L=13.2 mult=1 m=1
+XR7 Vc2 VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
+XR8 GND Vc2 GND sky130_fd_pr__res_xhigh_po_0p35 L=1.6 mult=1 m=1
 **** begin user architecture code
 
 

@@ -39,8 +39,8 @@ divx=8
 y1=-20
 
 divy=10
-x2=8
-x1=0}
+x2=8.4
+x1=0.4}
 B 2 1400 -840 1950 -520 {flags=graph,unlocked
 
 
@@ -138,8 +138,6 @@ node="in+
 in-"
 y2=0.9002
 y1=0.8998}
-N -1010 -620 -1010 -600 {
-lab=IN+}
 N -1010 -540 -1010 -520 {
 lab=ref}
 N -1010 -460 -1010 -440 {
@@ -149,7 +147,23 @@ lab=GND}
 N -1220 -480 -1220 -450 {
 lab=GND}
 N -1220 -570 -1220 -540 {
-lab=VDD}
+lab=#net1}
+N -1340 -480 -1340 -450 {
+lab=GND}
+N -1340 -570 -1340 -540 {
+lab=Vb}
+N -850 -490 -850 -460 {
+lab=GND}
+N -850 -580 -850 -550 {
+lab=Vc}
+N -710 -490 -710 -460 {
+lab=GND}
+N -710 -580 -710 -550 {
+lab=Vc1}
+N -580 -490 -580 -460 {
+lab=GND}
+N -580 -580 -580 -550 {
+lab=Vc2}
 N 510 -270 510 -250 {
 lab=OUT}
 N 510 -190 510 -150 {
@@ -189,9 +203,9 @@ lab=D1}
 N -380 -190 -380 -120 {
 lab=D1}
 N -120 -220 -70 -220 {
-lab=IN-}
+lab=ref}
 N -470 -220 -420 -220 {
-lab=IN+}
+lab=ref}
 N -380 -320 -380 -250 {
 lab=S}
 N -160 -320 -160 -250 {
@@ -332,102 +346,10 @@ N 250 -270 320 -270 {
 lab=OUT}
 N 250 -280 250 -220 {
 lab=OUT}
-N -830 -620 -830 -600 {
-lab=IN-}
-N -830 -540 -830 -520 {
-lab=#net1}
-N -830 -460 -830 -440 {
-lab=GND}
 N -1010 -530 -980 -530 {
 lab=ref}
-N -1670 -230 -1670 -210 {
+N -1220 -650 -1220 -630 {
 lab=VDD}
-N -1670 -60 -1670 -30 {
-lab=GND}
-N -1670 -150 -1670 -120 {
-lab=Vb}
-N -1670 -140 -1640 -140 {
-lab=Vb}
-N -1700 -180 -1690 -180 {
-lab=GND}
-N -1720 -180 -1720 -50 {
-lab=GND}
-N -1700 -50 -1670 -50 {
-lab=GND}
-N -1700 -90 -1690 -90 {
-lab=GND}
-N -1720 -180 -1700 -180 {
-lab=GND}
-N -1720 -90 -1700 -90 {
-lab=GND}
-N -1720 -50 -1700 -50 {
-lab=GND}
-N -1430 -230 -1430 -210 {
-lab=VDD}
-N -1430 -60 -1430 -30 {
-lab=GND}
-N -1430 -150 -1430 -120 {
-lab=Vc}
-N -1430 -140 -1400 -140 {
-lab=Vc}
-N -1460 -180 -1450 -180 {
-lab=GND}
-N -1480 -180 -1480 -50 {
-lab=GND}
-N -1460 -50 -1430 -50 {
-lab=GND}
-N -1460 -90 -1450 -90 {
-lab=GND}
-N -1480 -180 -1460 -180 {
-lab=GND}
-N -1480 -90 -1460 -90 {
-lab=GND}
-N -1480 -50 -1460 -50 {
-lab=GND}
-N -1180 -230 -1180 -210 {
-lab=VDD}
-N -1180 -60 -1180 -30 {
-lab=GND}
-N -1180 -150 -1180 -120 {
-lab=Vc1}
-N -1180 -140 -1150 -140 {
-lab=Vc1}
-N -1210 -180 -1200 -180 {
-lab=GND}
-N -1230 -180 -1230 -50 {
-lab=GND}
-N -1210 -50 -1180 -50 {
-lab=GND}
-N -1210 -90 -1200 -90 {
-lab=GND}
-N -1230 -180 -1210 -180 {
-lab=GND}
-N -1230 -90 -1210 -90 {
-lab=GND}
-N -1230 -50 -1210 -50 {
-lab=GND}
-N -950 -230 -950 -210 {
-lab=VDD}
-N -950 -60 -950 -30 {
-lab=GND}
-N -950 -150 -950 -120 {
-lab=Vc2}
-N -950 -140 -920 -140 {
-lab=Vc2}
-N -980 -180 -970 -180 {
-lab=GND}
-N -1000 -180 -1000 -50 {
-lab=GND}
-N -980 -50 -950 -50 {
-lab=GND}
-N -980 -90 -970 -90 {
-lab=GND}
-N -1000 -180 -980 -180 {
-lab=GND}
-N -1000 -90 -980 -90 {
-lab=GND}
-N -1000 -50 -980 -50 {
-lab=GND}
 C {devices/launcher.sym} 1570 -330 0 0 {name=h1
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
@@ -472,8 +394,7 @@ xschem raw_read $netlist_dir/OTA_FoldedCascode_AC1.raw tran
 "
 }
 C {sky130_fd_pr/corner.sym} -1690 -860 0 0 {name=CORNER only_toplevel=true corner=tt}
-C {devices/lab_pin.sym} -1010 -620 0 0 {name=p14 sig_type=std_logic lab=IN+}
-C {devices/vsource.sym} -1010 -570 0 0 {name=VbiasR1 value="0 ac 1 0
+C {devices/vsource.sym} -1220 -600 0 0 {name=VbiasR1 value="0 ac 1 0
 + sin(0 100u 50 0 0 0)"}
 C {devices/lab_pin.sym} -1010 -440 0 1 {name=p3 sig_type=std_logic lab=GND}
 C {devices/vsource.sym} -1010 -490 0 0 {name=V2 value=0.9 savecurrent=false}
@@ -485,12 +406,24 @@ C {devices/vsource.sym} -1220 -510 0 0 {name=V3 value=1.8 savecurrent=false}
 C {devices/gnd.sym} -1120 -460 0 0 {name=l4 lab=GND}
 C {devices/lab_pin.sym} -1120 -500 0 1 {name=p6 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1220 -450 0 1 {name=p11 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} -1220 -570 0 0 {name=p12 sig_type=std_logic lab=VDD}
+C {devices/lab_pin.sym} -1220 -650 0 0 {name=p12 sig_type=std_logic lab=VDD}
+C {devices/vsource.sym} -1340 -510 0 0 {name=V4 value=1.3 savecurrent=false}
+C {devices/lab_pin.sym} -1340 -450 0 1 {name=p33 sig_type=std_logic lab=GND}
+C {devices/lab_pin.sym} -1340 -570 0 0 {name=p35 sig_type=std_logic lab=Vb}
+C {devices/vsource.sym} -850 -520 0 0 {name=V5 value=0.69 savecurrent=false}
+C {devices/lab_pin.sym} -850 -460 0 1 {name=p21 sig_type=std_logic lab=GND}
+C {devices/lab_pin.sym} -850 -580 0 0 {name=p22 sig_type=std_logic lab=Vc}
+C {devices/vsource.sym} -710 -520 0 0 {name=V6 value=1.3 savecurrent=false}
+C {devices/lab_pin.sym} -710 -460 0 1 {name=p23 sig_type=std_logic lab=GND}
+C {devices/lab_pin.sym} -710 -580 0 0 {name=p26 sig_type=std_logic lab=Vc1}
+C {devices/vsource.sym} -580 -520 0 0 {name=V7 value=0.45 savecurrent=false}
+C {devices/lab_pin.sym} -580 -460 0 1 {name=p36 sig_type=std_logic lab=GND}
+C {devices/lab_pin.sym} -580 -580 0 0 {name=p37 sig_type=std_logic lab=Vc2}
 C {devices/lab_wire.sym} 510 -150 0 0 {name=p30 sig_type=std_logic lab=GND}
 C {sky130_fd_pr/cap_mim_m3_1.sym} 510 -220 0 0 {name=C3 model=cap_mim_m3_1 W=50 L=20 MF=1 spiceprefix=X}
 C {devices/opin.sym} 570 -270 0 0 {name=p7 lab=OUT}
-C {devices/ipin.sym} -470 -220 0 0 {name=p13 lab=IN+}
-C {devices/ipin.sym} -70 -220 0 1 {name=p15 lab=IN-}
+C {devices/ipin.sym} -470 -220 0 0 {name=p13 lab=ref}
+C {devices/ipin.sym} -70 -220 0 1 {name=p15 lab=ref}
 C {devices/lab_wire.sym} 10 -610 0 0 {name=p16 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} 120 30 0 0 {name=p17 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -180 -100 0 0 {name=p24 sig_type=std_logic lab=D1}
@@ -668,61 +601,4 @@ sa=0 sb=0 sd=0
 model=pfet_01v8_lvt
 spiceprefix=X
 }
-C {devices/lab_pin.sym} -830 -620 0 0 {name=p8 sig_type=std_logic lab=IN-}
-C {devices/vsource.sym} -830 -570 0 0 {name=VbiasR2 value="0 ac 1 180
-+ sin(0 100u 50 0 0 180)"}
-C {devices/lab_pin.sym} -830 -440 0 1 {name=p9 sig_type=std_logic lab=GND}
-C {devices/vsource.sym} -830 -490 0 0 {name=V1 value=0.9 savecurrent=false}
 C {devices/lab_pin.sym} -980 -530 0 1 {name=p10 sig_type=std_logic lab=ref}
-C {devices/lab_wire.sym} -1670 -30 0 0 {name=p38 sig_type=std_logic lab=GND}
-C {devices/lab_wire.sym} -1670 -230 0 0 {name=p39 sig_type=std_logic lab=VDD}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1670 -180 0 0 {name=R2
-L=5
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1670 -90 0 0 {name=R3
-L=13.2
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {devices/lab_wire.sym} -1430 -30 0 0 {name=p19 sig_type=std_logic lab=GND}
-C {devices/lab_wire.sym} -1430 -230 0 0 {name=p26 sig_type=std_logic lab=VDD}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1430 -180 0 0 {name=R1
-L=5
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1430 -90 0 0 {name=R4
-L=3.07
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {devices/lab_wire.sym} -1180 -30 0 0 {name=p37 sig_type=std_logic lab=GND}
-C {devices/lab_wire.sym} -1180 -230 0 0 {name=p40 sig_type=std_logic lab=VDD}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1180 -180 0 0 {name=R5
-L=5
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1180 -90 0 0 {name=R6
-L=13.2
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {devices/lab_wire.sym} -950 -30 0 0 {name=p42 sig_type=std_logic lab=GND}
-C {devices/lab_wire.sym} -950 -230 0 0 {name=p43 sig_type=std_logic lab=VDD}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} -950 -180 0 0 {name=R7
-L=5
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {sky130_fd_pr/res_xhigh_po_0p35.sym} -950 -90 0 0 {name=R8
-L=1.6
-model=res_xhigh_po_0p35
-spiceprefix=X
-mult=1}
-C {devices/lab_pin.sym} -1640 -140 0 1 {name=p21 sig_type=std_logic lab=Vb}
-C {devices/lab_pin.sym} -1400 -140 0 1 {name=p36 sig_type=std_logic lab=Vc}
-C {devices/lab_pin.sym} -1150 -140 0 1 {name=p41 sig_type=std_logic lab=Vc1}
-C {devices/lab_pin.sym} -920 -140 0 1 {name=p44 sig_type=std_logic lab=Vc2}
