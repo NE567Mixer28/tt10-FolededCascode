@@ -25,7 +25,7 @@ logx=1
 logy=0
 
 sweep=""
-rawfile=$netlist_dir/OTA_FoldedCascode_AC1.raw
+rawfile=$netlist_dir/OTA_FoldedCascode_AC1_1.raw
 sim_type=ac
 
 
@@ -61,7 +61,7 @@ logx=0
 logy=0
 divx=5
 hilight_wave=-1
-rawfile=$netlist_dir/OTA_FoldedCascode_AC1.raw
+rawfile=$netlist_dir/OTA_FoldedCascode_AC1_1.raw
 sim_type=tran
 subdivx=3
 
@@ -74,7 +74,7 @@ x2=0.099999998
 y2=0.94
 divy=10}
 B 2 850 -500 1400 -250 {flags=graph,unlocked
-rawfile=$netlist_dir/OTA_FoldedCascode_AC1.raw
+rawfile=$netlist_dir/OTA_FoldedCascode_AC1_1.raw
 sim_type=ac
 y1=-196.66665
 y2=203.33335
@@ -120,7 +120,7 @@ logx=0
 logy=0
 divx=5
 hilight_wave=-1
-rawfile=$netlist_dir/OTA_FoldedCascode_AC1.raw
+rawfile=$netlist_dir/OTA_FoldedCascode_AC1_1.raw
 sim_type=tran
 subdivx=3
 
@@ -140,30 +140,14 @@ y1=0.8998}
 N -1010 -620 -1010 -600 {
 lab=IN+}
 N -1010 -540 -1010 -520 {
-lab=#net1}
+lab=ref}
 N -1010 -460 -1010 -440 {
 lab=GND}
 N 720 -360 720 -340 {
 lab=OUT}
 N 720 -280 720 -240 {
 lab=GND}
-N -70 40 -70 100 {
-lab=MINUS}
-N -70 160 -70 190 {
-lab=GND}
-N 380 0 580 0 {
-lab=OUT}
-N 310 0 380 0 {
-lab=OUT}
-N -70 0 250 0 {
-lab=MINUS}
-N -70 0 -70 40 {
-lab=MINUS}
 N 730 -360 780 -360 {
-lab=OUT}
-N 580 0 640 0 {
-lab=OUT}
-N 640 -360 640 0 {
 lab=OUT}
 N 530 -360 630 -360 {
 lab=OUT}
@@ -204,7 +188,7 @@ lab=D1}
 N -170 -300 -170 -230 {
 lab=D1}
 N 90 -330 140 -330 {
-lab=MINUS}
+lab=IN-}
 N -260 -330 -210 -330 {
 lab=IN+}
 N -170 -430 -170 -360 {
@@ -437,6 +421,22 @@ N 460 -360 530 -360 {
 lab=OUT}
 N 460 -390 460 -330 {
 lab=OUT}
+N 240 -230 280 -230 {
+lab=D1}
+N 340 -230 400 -230 {
+lab=OUT}
+N 400 -360 400 -230 {
+lab=OUT}
+N 400 -360 460 -360 {
+lab=OUT}
+N -830 -620 -830 -600 {
+lab=IN-}
+N -830 -540 -830 -520 {
+lab=#net1}
+N -830 -460 -830 -440 {
+lab=GND}
+N -1010 -530 -990 -530 {
+lab=ref}
 C {devices/launcher.sym} 1570 -330 0 0 {name=h1
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
@@ -489,19 +489,7 @@ C {devices/vsource.sym} -1010 -490 0 0 {name=V2 value=0.9 savecurrent=false}
 C {devices/iopin.sym} -1490 -470 0 0 {name=p1 lab=VDD}
 C {devices/iopin.sym} -1490 -440 0 0 {name=p2 lab=GND}
 C {devices/lab_wire.sym} 720 -240 0 0 {name=p30 sig_type=std_logic lab=GND}
-C {sky130_fd_pr/cap_mim_m3_1.sym} 720 -310 0 0 {name=C3 model=cap_mim_m3_1 W=5 L=20 MF=1 spiceprefix=X}
-C {devices/capa.sym} -70 130 2 1 {name=C2
-m=1
-value=1
-footprint=1206
-device="ceramic capacitor"}
-C {devices/gnd.sym} -70 190 0 0 {name=l2 lab=GND}
-C {devices/res.sym} 280 0 1 0 {name=R1
-value=1G
-footprint=1206
-device=resistor
-m=1}
-C {devices/lab_pin.sym} -70 0 2 1 {name=l3 sig_type=std_logic lab=MINUS}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 720 -310 0 0 {name=C3 model=cap_mim_m3_1 W=25 L=20 MF=1 spiceprefix=X}
 C {devices/opin.sym} 780 -360 0 0 {name=p7 lab=OUT}
 C {devices/iopin.sym} -1120 -560 0 0 {name=p4 lab=VDD}
 C {devices/iopin.sym} -1120 -530 0 0 {name=p5 lab=GND}
@@ -511,7 +499,7 @@ C {devices/lab_pin.sym} -1120 -500 0 1 {name=p6 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1220 -450 0 1 {name=p11 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1220 -570 0 0 {name=p12 sig_type=std_logic lab=VDD}
 C {devices/ipin.sym} -260 -330 0 0 {name=p8 lab=IN+}
-C {devices/ipin.sym} 140 -330 0 1 {name=p9 lab=MINUS}
+C {devices/ipin.sym} 140 -330 0 1 {name=p9 lab=IN-}
 C {devices/lab_wire.sym} 220 -720 0 0 {name=p10 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} 330 -80 0 0 {name=p13 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} 30 -210 0 0 {name=p24 sig_type=std_logic lab=D1}
@@ -741,3 +729,12 @@ sa=0 sb=0 sd=0
 model=pfet_01v8_lvt
 spiceprefix=X
 }
+C {sky130_fd_pr/cap_mim_m3_1.sym} 310 -230 1 0 {name=C1 model=cap_mim_m3_1 W=50 L=20 MF=1 spiceprefix=X}
+C {devices/lab_pin.sym} -830 -620 0 0 {name=p18 sig_type=std_logic lab=IN-}
+C {devices/vsource.sym} -830 -570 0 0 {name=VbiasR2 value="0 ac 1 180
++ sin(0 100u 50 0 0 180)"
+lab=IN-}
+C {devices/lab_pin.sym} -830 -440 0 1 {name=p19 sig_type=std_logic lab=GND}
+C {devices/vsource.sym} -830 -490 0 0 {name=V1 value=0.9 savecurrent=false
+lab=IN-}
+C {devices/lab_pin.sym} -990 -530 0 1 {name=p20 sig_type=std_logic lab=ref}

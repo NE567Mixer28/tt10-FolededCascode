@@ -30,14 +30,15 @@ XR5 Vc1 VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
 XR6 GND Vc1 GND sky130_fd_pr__res_xhigh_po_0p35 L=13.2 mult=1 m=1
 XR7 Vc2 VDD GND sky130_fd_pr__res_xhigh_po_0p35 L=5 mult=1 m=1
 XR8 GND Vc2 GND sky130_fd_pr__res_xhigh_po_0p35 L=1.4 mult=1 m=1
-XM7 G Vc2 D9 VDD sky130_fd_pr__pfet_01v8_lvt L=1.2 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+XM7 G Vc2 D9 VDD sky130_fd_pr__pfet_01v8_lvt L=2 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM9 D9 G VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1.2 W=5.9 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
 XM8 D10 G VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1.2 W=5.9 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
-XM10 OUT Vc2 D10 VDD sky130_fd_pr__pfet_01v8_lvt L=1.2 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
+XM10 OUT Vc2 D10 VDD sky130_fd_pr__pfet_01v8_lvt L=2 W=8 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
 + ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XC1 OUT D1 sky130_fd_pr__cap_mim_m3_1 W=50 L=20 MF=1 m=1
 **** begin user architecture code
 
 

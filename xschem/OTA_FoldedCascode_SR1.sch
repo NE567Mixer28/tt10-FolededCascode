@@ -13,7 +13,7 @@ ypos2=2
 
 
 unity=1
-x1=0
+
 
 
 
@@ -44,7 +44,8 @@ divx=10
 divy=20
 rainbow=1
 y2=1.8
-x2=1e-06}
+x2=5.05e-3
+x1=5e-3}
 N -960 -390 -960 -350 {
 lab=GND}
 N -1100 -370 -1100 -340 {
@@ -52,7 +53,7 @@ lab=GND}
 N -1100 -460 -1100 -430 {
 lab=VDD}
 N -1100 -200 -1100 -180 {
-lab=#net1}
+lab=GND}
 N -1100 -280 -1100 -260 {
 lab=IN+}
 N -1100 -120 -1100 -100 {
@@ -87,8 +88,6 @@ N -170 -120 150 -120 {
 lab=D1}
 N -170 -190 -170 -120 {
 lab=D1}
-N 90 -220 140 -220 {
-lab=MINUS}
 N -260 -220 -210 -220 {
 lab=IN+}
 N 460 -280 560 -280 {
@@ -317,22 +316,28 @@ N -550 -620 -530 -620 {
 lab=GND}
 N -550 -580 -530 -580 {
 lab=GND}
-N -150 130 -150 190 {
-lab=MINUS}
-N -150 250 -150 280 {
-lab=GND}
 N 300 90 500 90 {
 lab=OUT}
 N 230 90 300 90 {
 lab=OUT}
-N -150 90 170 90 {
-lab=MINUS}
-N -150 90 -150 130 {
-lab=MINUS}
 N 500 90 560 90 {
 lab=OUT}
 N 560 -280 560 90 {
 lab=OUT}
+N 120 90 230 90 {
+lab=OUT}
+N 120 -220 120 90 {
+lab=OUT}
+N 90 -220 120 -220 {
+lab=OUT}
+N 560 -280 620 -280 {
+lab=OUT}
+N 610 -280 610 -260 {
+lab=OUT}
+N 610 -200 610 -170 {
+lab=GND}
+N -1100 -180 -1100 -120 {
+lab=GND}
 C {devices/iopin.sym} -970 -460 0 0 {name=p1 lab=VDD}
 C {devices/iopin.sym} -970 -430 0 0 {name=p2 lab=GND}
 C {devices/vsource.sym} -1100 -400 0 0 {name=V1 value=1.8 savecurrent=false}
@@ -340,11 +345,11 @@ C {devices/gnd.sym} -960 -350 0 0 {name=l1 lab=GND}
 C {devices/lab_pin.sym} -960 -390 0 1 {name=p8 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1100 -340 0 1 {name=p9 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1100 -460 0 0 {name=p10 sig_type=std_logic lab=VDD}
-C {devices/vsource.sym} -1100 -230 0 0 {name=Vbias value="0 PULSE(0 0.9 0 100n 100n 50m 100m)"
+C {devices/vsource.sym} -1100 -230 0 0 {name=Vbias value="PULSE(0.5 1.6 0 10u 10u 5m 10m)"
 
 }
 C {devices/lab_pin.sym} -1100 -280 0 0 {name=p14 sig_type=std_logic lab=IN+}
-C {devices/launcher.sym} -770 -420 0 0 {name=h1
+C {devices/launcher.sym} -780 -410 0 0 {name=h1
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 value="
@@ -372,7 +377,7 @@ value="
   remzerovec 
   write OTA_FoldedCascode_SR1.raw
   set appendwrite
-  tran 10m 250m
+  tran 10u 20m
   write OTA_FoldedCascode_SR1.raw
 .endc
 "}
@@ -388,9 +393,7 @@ xschem raw_read $netlist_dir/OTA_FoldedCascode_SR.raw tran
 }
 C {sky130_fd_pr/corner.sym} -1550 -410 0 0 {name=CORNER only_toplevel=true corner=tt}
 C {devices/lab_pin.sym} -1100 -100 0 1 {name=p13 sig_type=std_logic lab=GND}
-C {devices/vsource.sym} -1100 -150 0 0 {name=V2 value=0.9 savecurrent=false}
 C {devices/ipin.sym} -260 -220 0 0 {name=p5 lab=IN+}
-C {devices/ipin.sym} 140 -220 0 1 {name=p6 lab=MINUS}
 C {devices/lab_wire.sym} 220 -610 0 0 {name=p7 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} 330 30 0 0 {name=p11 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} 30 -100 0 0 {name=p24 sig_type=std_logic lab=D1}
@@ -403,7 +406,7 @@ C {devices/lab_pin.sym} -60 -300 0 0 {name=p29 sig_type=std_logic lab=S
 C {devices/lab_pin.sym} 350 -90 0 0 {name=p17 sig_type=std_logic lab=Vc}
 C {devices/lab_pin.sym} 360 -210 0 1 {name=p31 sig_type=std_logic lab=Vc1
 }
-C {devices/opin.sym} 560 -280 0 0 {name=p15 lab=OUT}
+C {devices/opin.sym} 620 -280 0 0 {name=p15 lab=OUT}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} -80 -440 0 0 {name=M11
 L=1
 W=60
@@ -621,15 +624,5 @@ C {devices/lab_pin.sym} -1190 -670 0 1 {name=p34 sig_type=std_logic lab=Vb}
 C {devices/lab_pin.sym} -950 -670 0 1 {name=p36 sig_type=std_logic lab=Vc}
 C {devices/lab_pin.sym} -700 -670 0 1 {name=p41 sig_type=std_logic lab=Vc1}
 C {devices/lab_pin.sym} -470 -670 0 1 {name=p44 sig_type=std_logic lab=Vc2}
-C {devices/capa.sym} -150 220 2 1 {name=C2
-m=1
-value=1
-footprint=1206
-device="ceramic capacitor"}
-C {devices/gnd.sym} -150 280 0 0 {name=l3 lab=GND}
-C {devices/res.sym} 200 90 1 0 {name=R9
-value=1G
-footprint=1206
-device=resistor
-m=1}
-C {devices/lab_pin.sym} -150 90 2 1 {name=l4 sig_type=std_logic lab=MINUS}
+C {sky130_fd_pr/cap_mim_m3_1.sym} 610 -230 0 0 {name=C3 model=cap_mim_m3_1 W=25 L=20 MF=1 spiceprefix=X}
+C {devices/lab_wire.sym} 610 -170 0 0 {name=p3 sig_type=std_logic lab=GND}

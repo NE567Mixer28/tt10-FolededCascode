@@ -308,7 +308,7 @@ save @m.xm10.msky130_fd_pr__pfet_01v8_lvt[gm]
    set appendwrite
    dc Vbias 0.899 0.901 0.00001 
    *dc Vbias 0.899 0.901 0.0001
-   *dc Vbias 0 1.8 0.01 
+   *dc Vbias 0 1.8 0.001 
    *remzerovec 
    plot v(out),v(in+)
    plot deriv(v(out)) 

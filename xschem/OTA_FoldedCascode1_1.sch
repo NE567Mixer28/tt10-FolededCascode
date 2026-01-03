@@ -5,19 +5,19 @@ K {}
 V {}
 S {}
 E {}
-N -1470 -410 -1470 -370 {
+N 640 -760 640 -720 {
 lab=GND}
-N -1570 -390 -1570 -360 {
+N 540 -740 540 -710 {
 lab=GND}
-N -1570 -480 -1570 -450 {
+N 540 -830 540 -800 {
 lab=VDD}
-N -1570 -170 -1570 -150 {
+N 540 -520 540 -500 {
 lab=GND}
-N -1470 -170 -1470 -150 {
+N 640 -520 640 -500 {
 lab=GND}
-N -1570 -250 -1570 -230 {
+N 540 -600 540 -580 {
 lab=IN+}
-N -1470 -250 -1470 -230 {
+N 640 -600 640 -580 {
 lab=IN-}
 N -130 -610 -90 -610 {
 lab=VDD}
@@ -281,6 +281,14 @@ N 190 -520 190 -420 {
 lab=VDD}
 N -190 -520 -190 -420 {
 lab=VDD}
+N -110 -120 -70 -120 {
+lab=D1}
+N -10 -120 60 -120 {
+lab=OUT}
+N 60 -280 60 -120 {
+lab=OUT}
+N 60 -280 110 -280 {
+lab=OUT}
 C {devices/simulator_commands_shown.sym} -2240 -620 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
@@ -319,24 +327,24 @@ save @m.xm10.msky130_fd_pr__pfet_01v8_lvt[gm]
 .end
 " }
 C {sky130_fd_pr/corner.sym} -2350 -640 0 0 {name=CORNER only_toplevel=false corner=tt}
-C {devices/iopin.sym} -1470 -470 0 0 {name=p1 lab=VDD}
-C {devices/iopin.sym} -1470 -440 0 0 {name=p2 lab=GND}
-C {devices/vsource.sym} -1570 -420 0 0 {name=V1 value=1.8 savecurrent=false}
-C {devices/gnd.sym} -1470 -370 0 0 {name=l1 lab=GND}
-C {devices/lab_pin.sym} -1470 -410 0 1 {name=p8 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} -1570 -360 0 1 {name=p9 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} -1570 -480 0 0 {name=p10 sig_type=std_logic lab=VDD}
-C {devices/vsource.sym} -1570 -200 0 0 {name=Vbias value=0.9 savecurrent=false}
-C {devices/vsource.sym} -1470 -200 0 0 {name=VbiasR value=0.9 savecurrent=false}
-C {devices/lab_pin.sym} -1470 -250 0 0 {name=p13 sig_type=std_logic lab=IN-}
-C {devices/lab_pin.sym} -1570 -250 0 0 {name=p14 sig_type=std_logic lab=IN+}
-C {devices/launcher.sym} -1240 -210 0 0 {name=h1
+C {devices/iopin.sym} 640 -820 0 0 {name=p1 lab=VDD}
+C {devices/iopin.sym} 640 -790 0 0 {name=p2 lab=GND}
+C {devices/vsource.sym} 540 -770 0 0 {name=V1 value=1.8 savecurrent=false}
+C {devices/gnd.sym} 640 -720 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} 640 -760 0 1 {name=p8 sig_type=std_logic lab=GND}
+C {devices/lab_pin.sym} 540 -710 0 1 {name=p9 sig_type=std_logic lab=GND}
+C {devices/lab_pin.sym} 540 -830 0 0 {name=p10 sig_type=std_logic lab=VDD}
+C {devices/vsource.sym} 540 -550 0 0 {name=Vbias value=0.9 savecurrent=false}
+C {devices/vsource.sym} 640 -550 0 0 {name=VbiasR value=0.9 savecurrent=false}
+C {devices/lab_pin.sym} 640 -600 0 0 {name=p13 sig_type=std_logic lab=IN-}
+C {devices/lab_pin.sym} 540 -600 0 0 {name=p14 sig_type=std_logic lab=IN+}
+C {devices/launcher.sym} 870 -560 0 0 {name=h1
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
-C {devices/lab_pin.sym} -1570 -150 0 1 {name=p11 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} -1470 -150 0 1 {name=p12 sig_type=std_logic lab=GND}
-C {devices/launcher.sym} -1230 -240 0 0 {name=h3
+C {devices/lab_pin.sym} 540 -500 0 1 {name=p11 sig_type=std_logic lab=GND}
+C {devices/lab_pin.sym} 640 -500 0 1 {name=p12 sig_type=std_logic lab=GND}
+C {devices/launcher.sym} 880 -590 0 0 {name=h3
 descr="Netlist & sim" 
 tclcommand="xschem netlist; xschem simulate"}
 C {devices/ipin.sym} -610 -220 0 0 {name=p4 lab=IN+}
@@ -571,3 +579,4 @@ sa=0 sb=0 sd=0
 model=pfet_01v8_lvt
 spiceprefix=X
 }
+C {sky130_fd_pr/cap_mim_m3_1.sym} -40 -120 1 0 {name=C1 model=cap_mim_m3_1 W=50 L=20 MF=1 spiceprefix=X}

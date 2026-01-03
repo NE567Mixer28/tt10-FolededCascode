@@ -80,22 +80,6 @@ N -1220 -480 -1220 -450 {
 lab=GND}
 N -1220 -570 -1220 -540 {
 lab=VDD}
-N -1340 -480 -1340 -450 {
-lab=GND}
-N -1340 -570 -1340 -540 {
-lab=Vb}
-N -850 -490 -850 -460 {
-lab=GND}
-N -850 -580 -850 -550 {
-lab=Vc}
-N -710 -490 -710 -460 {
-lab=GND}
-N -710 -580 -710 -550 {
-lab=Vc1}
-N -580 -490 -580 -460 {
-lab=GND}
-N -580 -580 -580 -550 {
-lab=Vc2}
 N 510 -270 510 -250 {
 lab=OUT}
 N 320 -270 420 -270 {
@@ -278,6 +262,94 @@ N -980 -560 -980 -530 {
 lab=Ref}
 N 420 -270 510 -270 {
 lab=OUT}
+N -1850 -300 -1850 -280 {
+lab=VDD}
+N -1850 -130 -1850 -100 {
+lab=GND}
+N -1850 -220 -1850 -190 {
+lab=Vb}
+N -1850 -210 -1820 -210 {
+lab=Vb}
+N -1880 -250 -1870 -250 {
+lab=GND}
+N -1900 -250 -1900 -120 {
+lab=GND}
+N -1880 -120 -1850 -120 {
+lab=GND}
+N -1880 -160 -1870 -160 {
+lab=GND}
+N -1900 -250 -1880 -250 {
+lab=GND}
+N -1900 -160 -1880 -160 {
+lab=GND}
+N -1900 -120 -1880 -120 {
+lab=GND}
+N -1610 -300 -1610 -280 {
+lab=VDD}
+N -1610 -130 -1610 -100 {
+lab=GND}
+N -1610 -220 -1610 -190 {
+lab=Vc}
+N -1610 -210 -1580 -210 {
+lab=Vc}
+N -1640 -250 -1630 -250 {
+lab=GND}
+N -1660 -250 -1660 -120 {
+lab=GND}
+N -1640 -120 -1610 -120 {
+lab=GND}
+N -1640 -160 -1630 -160 {
+lab=GND}
+N -1660 -250 -1640 -250 {
+lab=GND}
+N -1660 -160 -1640 -160 {
+lab=GND}
+N -1660 -120 -1640 -120 {
+lab=GND}
+N -1360 -300 -1360 -280 {
+lab=VDD}
+N -1360 -130 -1360 -100 {
+lab=GND}
+N -1360 -220 -1360 -190 {
+lab=Vc1}
+N -1360 -210 -1330 -210 {
+lab=Vc1}
+N -1390 -250 -1380 -250 {
+lab=GND}
+N -1410 -250 -1410 -120 {
+lab=GND}
+N -1390 -120 -1360 -120 {
+lab=GND}
+N -1390 -160 -1380 -160 {
+lab=GND}
+N -1410 -250 -1390 -250 {
+lab=GND}
+N -1410 -160 -1390 -160 {
+lab=GND}
+N -1410 -120 -1390 -120 {
+lab=GND}
+N -1130 -300 -1130 -280 {
+lab=VDD}
+N -1130 -130 -1130 -100 {
+lab=GND}
+N -1130 -220 -1130 -190 {
+lab=Vc2}
+N -1130 -210 -1100 -210 {
+lab=Vc2}
+N -1160 -250 -1150 -250 {
+lab=GND}
+N -1180 -250 -1180 -120 {
+lab=GND}
+N -1160 -120 -1130 -120 {
+lab=GND}
+N -1160 -160 -1150 -160 {
+lab=GND}
+N -1180 -250 -1160 -250 {
+lab=GND}
+N -1180 -160 -1160 -160 {
+lab=GND}
+N -1180 -120 -1160 -120 {
+lab=GND}
 C {devices/launcher.sym} 1350 -340 0 0 {name=h1
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
@@ -299,10 +371,6 @@ value="
   remzerovec
   write OTA_FoldedCascode_AC1_OutImpedence.raw
 
-
-  tran 100u 100m
-  write OTA_FoldedCascode_AC1_OutImpedence.raw
-
 .endc
 "}
 C {devices/launcher.sym} 1340 -390 0 0 {name=h3
@@ -321,18 +389,6 @@ C {devices/gnd.sym} -1120 -460 0 0 {name=l4 lab=GND}
 C {devices/lab_pin.sym} -1120 -500 0 1 {name=p6 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1220 -450 0 1 {name=p11 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -1220 -570 0 0 {name=p12 sig_type=std_logic lab=VDD}
-C {devices/vsource.sym} -1340 -510 0 0 {name=V4 value=1.3 savecurrent=false}
-C {devices/lab_pin.sym} -1340 -450 0 1 {name=p33 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} -1340 -570 0 0 {name=p35 sig_type=std_logic lab=Vb}
-C {devices/vsource.sym} -850 -520 0 0 {name=V5 value=0.69 savecurrent=false}
-C {devices/lab_pin.sym} -850 -460 0 1 {name=p21 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} -850 -580 0 0 {name=p22 sig_type=std_logic lab=Vc}
-C {devices/vsource.sym} -710 -520 0 0 {name=V6 value=1.3 savecurrent=false}
-C {devices/lab_pin.sym} -710 -460 0 1 {name=p23 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} -710 -580 0 0 {name=p26 sig_type=std_logic lab=Vc1}
-C {devices/vsource.sym} -580 -520 0 0 {name=V7 value=0.45 savecurrent=false}
-C {devices/lab_pin.sym} -580 -460 0 1 {name=p36 sig_type=std_logic lab=GND}
-C {devices/lab_pin.sym} -580 -580 0 0 {name=p37 sig_type=std_logic lab=Vc2}
 C {devices/lab_wire.sym} 10 -610 0 0 {name=p16 sig_type=std_logic lab=VDD}
 C {devices/lab_wire.sym} 120 30 0 0 {name=p17 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -180 -100 0 0 {name=p24 sig_type=std_logic lab=D1}
@@ -515,3 +571,55 @@ C {devices/lab_pin.sym} -980 -440 0 1 {name=p7 sig_type=std_logic lab=GND}
 C {devices/lab_pin.sym} -980 -560 0 0 {name=p8 sig_type=std_logic lab=Ref}
 C {devices/lab_pin.sym} -470 -220 0 0 {name=p9 sig_type=std_logic lab=Ref}
 C {devices/lab_pin.sym} -70 -220 0 1 {name=p10 sig_type=std_logic lab=Ref}
+C {devices/lab_wire.sym} -1850 -100 0 0 {name=p38 sig_type=std_logic lab=GND}
+C {devices/lab_wire.sym} -1850 -300 0 0 {name=p39 sig_type=std_logic lab=VDD}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1850 -250 0 0 {name=R2
+L=5
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1850 -160 0 0 {name=R3
+L=13.2
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {devices/lab_wire.sym} -1610 -100 0 0 {name=p19 sig_type=std_logic lab=GND}
+C {devices/lab_wire.sym} -1610 -300 0 0 {name=p26 sig_type=std_logic lab=VDD}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1610 -250 0 0 {name=R1
+L=5
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1610 -160 0 0 {name=R4
+L=3.07
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {devices/lab_wire.sym} -1360 -100 0 0 {name=p37 sig_type=std_logic lab=GND}
+C {devices/lab_wire.sym} -1360 -300 0 0 {name=p40 sig_type=std_logic lab=VDD}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1360 -250 0 0 {name=R5
+L=5
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1360 -160 0 0 {name=R6
+L=13.2
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {devices/lab_wire.sym} -1130 -100 0 0 {name=p42 sig_type=std_logic lab=GND}
+C {devices/lab_wire.sym} -1130 -300 0 0 {name=p43 sig_type=std_logic lab=VDD}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1130 -250 0 0 {name=R7
+L=5
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/res_xhigh_po_0p35.sym} -1130 -160 0 0 {name=R8
+L=1.6
+model=res_xhigh_po_0p35
+spiceprefix=X
+mult=1}
+C {devices/lab_pin.sym} -1820 -210 0 1 {name=p21 sig_type=std_logic lab=Vb}
+C {devices/lab_pin.sym} -1580 -210 0 1 {name=p36 sig_type=std_logic lab=Vc}
+C {devices/lab_pin.sym} -1330 -210 0 1 {name=p41 sig_type=std_logic lab=Vc1}
+C {devices/lab_pin.sym} -1100 -210 0 1 {name=p44 sig_type=std_logic lab=Vc2}
