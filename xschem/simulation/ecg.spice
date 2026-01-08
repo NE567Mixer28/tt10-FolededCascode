@@ -1,6 +1,6 @@
 ** sch_path: /home/ttuser/tt10-FoldedCascode/xschem/ecg.sch
 **.subckt ecg VDD GND VDD VDD GND GND VDD GND VDD GND VDD GND VDD GND VDD GND VDD GND VDD GND VDD GND VDD GND VDD GND VDD GND VDD
-*+ GND
+*+ GND VDD GND VDD GND VDD GND
 *.iopin VDD
 *.iopin GND
 *.iopin VDD
@@ -31,50 +31,67 @@
 *.iopin GND
 *.iopin VDD
 *.iopin GND
+*.iopin VDD
+*.iopin GND
+*.iopin VDD
+*.iopin GND
+*.iopin VDD
+*.iopin GND
+V3 VDD GND 1.8
 x1 VDD GND out2 net4 IN2 OFC
 x2 VDD GND out1 net3 IN1 OFC
 x3 VDD GND out net2 net1 OFC
-V3 VDD GND 1.8
-VbiasR1 IN1 ref 0 ac 1 0 sin(0 500u 10 0 0 0)
-V2 ref GND 0.9
-VbiasR2 IN2 net5 0 ac 1 180 sin(0 500u 10 0 0 180)
-V1 net5 GND 0.9
 R1 net3 out1 250k m=1
 R2 net4 out2 250k m=1
-x4 VDD GND out_ref net6 ref OFC
-R6 net1 out_ref 100k m=1
-R8 out net6 100k m=1
-C1 out_ref net6 10u m=1
-R5 net2 out 100k m=1
+x4 VDD GND out_ref net5 ref OFC
+R6 net1 out_ref 250k m=1
+R8 out net5 100k m=1
+C1 out_ref net5 10u m=1
+R5 net2 out 250k m=1
 x5 VDD GND out12 out12 out1 OFC
 x6 VDD GND out22 out22 out2 OFC
-R4 out12 net2 100k m=1
-R7 out22 net1 100k m=1
-x7 VDD GND outPB outPB net7 OFC
-R9 net8 A 430k m=1
-C2 ref net7 2.45n m=1
-R10 net7 net8 430k m=1
-C3 outPB net8 2.45n m=1
-x8 VDD GND net9 net9 net10 OFC
-R11 ref net10 500k m=1
-C5 net16 net11 4u m=1
-C6 net11 net10 4u m=1
-x9 VDD GND outA net12 ref OFC
-R13 outA net12 500k m=1
-R14 net12 net13 10k m=1
-x10 VDD GND net13 net13 out OFC
-x11 VDD GND out_drl net14 ref OFC
-R16 out_drl net14 220k m=1
-R17 net14 net15 220 m=1
-x12 VDD GND net15 net15 Vcm OFC
-C4 net14 out_drl 100n m=1
+R4 out12 net2 10k m=1
+R7 out22 net1 10k m=1
+x7 VDD GND outPB outPB net6 OFC
+R9 net7 A 430k m=1
+C2 ref net6 2.45n m=1
+R10 net6 net7 430k m=1
+C3 outPB net7 2.45n m=1
+x8 VDD GND net10 net10 net8 OFC
+R11 ref net8 500k m=1
+C5 net15 net9 4u m=1
+C6 net9 net8 4u m=1
+x9 VDD GND outA net11 ref OFC
+R13 outA net11 500k m=1
+R14 net11 net12 10k m=1
+x10 VDD GND net12 net12 out OFC
+x11 VDD GND out_drl net13 ref OFC
+R16 out_drl net13 220k m=1
+R17 net13 net14 220 m=1
+x12 VDD GND net14 net14 Vcm OFC
+C4 net13 out_drl 100n m=1
 x13 VDD GND A A outA OFC
-x14 VDD GND net16 net16 outPB OFC
+x14 VDD GND net15 net15 outPB OFC
 C7 GND outPA 100n m=1
-R18 outPA net9 100 m=1
-R12 net11 net9 500k m=1
+R18 outPA net10 100 m=1
+R12 net9 net10 500k m=1
 XR3 Vcm net3 GND sky130_fd_pr__res_high_po_0p35 L=0.4 mult=1 m=1
 XR15 Vcm net4 GND sky130_fd_pr__res_high_po_0p35 L=0.4 mult=1 m=1
+x15 VDD GND outN outN net17 OFC
+x16 VDD GND net16 net16 net19 OFC
+R19 net21 net20 287k m=1
+R20 net17 net21 287k m=1
+R21 net16 net18 143.5k m=1
+C8 net21 net16 20n m=1
+C9 net18 net20 10n m=1
+C10 net17 net18 10n m=1
+R22 net19 outN 100 m=1
+R23 ref net19 100k m=1
+x17 VDD GND net20 net20 outPA OFC
+VbiasR1 IN1 net22 0 ac 1 0 sin(0 500u 10 0 0 0)
+V2 ref GND 0.9
+VbiasR2 IN2 net22 0 ac 1 180 sin(0 500u 10 0 0 180)
+VbiasR3 net22 ref 0 ac 1 0 sin(0 100m 50 10u 0 0)
 **** begin user architecture code
 
 
@@ -88,15 +105,15 @@ XR15 Vcm net4 GND sky130_fd_pr__res_high_po_0p35 L=0.4 mult=1 m=1
   write ecg.raw
 
   set appendwrite
-  ac dec 10 0.01 100Meg
+  ac dec 1000 0.01 100Meg
   remzerovec
   write ecg.raw
 
-  tran 100u 100m
+  tran 100u 200m
   write ecg.raw
 
   set appendwrite
-  noise v(outPA) VbiasR1 dec 10 0.05 1e3
+  noise v(out1) VbiasR1 dec 10 0.05 1e3
   remzerovec
   write ecg.raw
   setplot noise1
